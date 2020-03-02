@@ -1,0 +1,21 @@
+<h1>Lookup by Total</h1>
+
+<form action="/" METHOD="GET">
+  <input type="number" name="totalCharged" step="0.01" value="{{totalCharged}}" />
+
+  <input type="submit" value="Lookup" />
+</form>
+
+{{#if orders }}
+<h2>Orders</h2>
+{{#each orders}}
+<div>
+  OrderId: {{this.orderId}}
+  <ul>
+    {{#each this.items }}
+    <li>{{ this.shipmentDate }} - {{ this.title }}</li>
+    {{/each}}
+  </ul>
+</div>
+{{/each}}
+{{/if}}
